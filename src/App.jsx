@@ -1,11 +1,12 @@
-import './App.css'
+import "./App.css";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <div className="w-full h-screen bg-gradient-to-br from-gray-300 to-gray-900">
+      <Header />
+    </div>
+  );
 }
 
-export default App
+export default App;
