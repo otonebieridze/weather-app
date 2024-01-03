@@ -1,7 +1,7 @@
 import { useMyContext } from "../context";
 
 export default function Forecast() {
-  const { isDarkMode, weatherData } = useMyContext();
+  const { isDarkMode, weatherData, errorMessage, loading } = useMyContext();
 
   const daysForecast = [
     {
@@ -61,6 +61,18 @@ export default function Forecast() {
 
   return (
     <>
+      {errorMessage && (
+        <div className="text-red-500 text-xl md:text-2xl text-center font-poppins font-bold mt-12 ml-20 mr-20">
+          {errorMessage}
+        </div>
+      )}
+
+      {loading && (
+        <div className="text-[#000000] dark:text-[#FFFFFF] text-xl md:text-2xl text-center font-poppins font-bold mt-12 ml-20 mr-20">
+          Loading...
+        </div>
+      )}
+
       {weatherData ? (
         <div className="w-full max-w-7xl mb-16 px-4 sm:px-14 lg:px-0">
           <div className="mt-11">
@@ -284,7 +296,9 @@ export default function Forecast() {
         </div>
       ) : (
         <div className="text-[#000000] dark:text-[#FFFFFF] text-xl md:text-2xl text-center font-poppins font-bold mt-12 ml-20 mr-20">
-          Please enter your preferred city in the search bar and press Enter.
+          {!errorMessage &&
+            !loading &&
+            "Please enter your preferred city in the search bar and press Enter."}
         </div>
       )}
     </>

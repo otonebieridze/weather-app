@@ -5,10 +5,27 @@ import axios from "axios";
 import { useMyContext } from "../context";
 
 export default function Header() {
-  const { isDarkMode, setIsDarkMode, setWeatherData } = useMyContext();
+  const {
+    isDarkMode,
+    setIsDarkMode,
+    setWeatherData,
+    setErrorMessage,
+    setLoading,
+  } = useMyContext();
   const [searchValue, setSearchValue] = useState("");
 
   const fetchData = async () => {
+    setErrorMessage(null);
+    setWeatherData(null);
+    setLoading(true);
+
+    if (searchValue === "") {
+      setErrorMessage("Please enter a city name.");
+      setWeatherData(null);
+      setLoading(false);
+      return;
+    }
+
     const options = {
       method: "GET",
       url: `https://${import.meta.env.VITE_RapidAPI_Host}/forecast.json`,
@@ -25,8 +42,34 @@ export default function Header() {
     try {
       const response = await axios.request(options);
       setWeatherData(response.data);
+      setLoading(false);
     } catch (error) {
-      console.error(error);
+      if (error.response?.data?.error?.message) {
+        console.error(error.response.data.error.message);
+        setErrorMessage(error.response.data.error.message);
+        setWeatherData(null);
+        setLoading(false);
+      } else if (error.response) {
+        console.error("Server responded with an error:", error.response.data);
+        setErrorMessage(error.response.data?.message);
+        setWeatherData(null);
+        setLoading(false);
+      } else if (error.request) {
+        console.error("No response received from the server");
+        setErrorMessage(
+          "No response received from the server. Please try again."
+        );
+        setWeatherData(null);
+        setLoading(false);
+      } else {
+        console.error(
+          "An error occurred while setting up the request:",
+          error.message
+        );
+        setErrorMessage("An error occurred. Please try again later.");
+        setWeatherData(null);
+        setLoading(false);
+      }
     }
   };
 
