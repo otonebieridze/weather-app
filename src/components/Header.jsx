@@ -50,7 +50,7 @@ export default function Header() {
         </p>
       </div>
 
-      <div className="w-full md:w-[450px] bg-[#D9D9D9] dark:bg-[#444444] mt-8 md:mt-16 md:mr-16 lg:mr-5 gap-4 pl-6 pr-9 py-2 border border-solid border-[#000000] dark:border-none rounded-[40px] shadow-2xl flex items-center">
+      <div className="w-full md:w-[450px] bg-[#D9D9D9] dark:bg-[#444444] mt-8 md:mt-16 md:mr-16 lg:mr-5 gap-4 pl-6 pr-9 py-2 rounded-[40px] shadow-md flex items-center">
         <IoSearch
           className="text-5xl text-gray-400 cursor-pointer"
           onClick={fetchData}

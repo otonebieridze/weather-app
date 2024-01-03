@@ -66,7 +66,7 @@ export default function Forecast() {
           <div className="mt-11">
             <div className="gap-5 flex max-lg:flex-col max-lg:gap-0">
               <div className="w-full lg:w-2/6 flex grow ml-0 lg:ml-5">
-                <div className="bg-zinc-300 dark:bg-[#444444] text-zinc-800 dark:text-white flex grow flex-col justify-center items-center w-full px-16 py-12 rounded-[30px] max-md:max-w-full max-md:mt-10 max-md:px-5">
+                <div className="bg-zinc-300 dark:bg-[#444444] shadow-lg text-zinc-800 dark:text-white flex grow flex-col justify-center items-center w-full px-16 py-12 rounded-[30px] max-md:max-w-full max-md:mt-10 max-md:px-5">
                   <div className="flex flex-col items-center mt-4">
                     <div className="text-4xl font-bold self-center">
                       {weatherData.location.name}
@@ -82,7 +82,7 @@ export default function Forecast() {
               </div>
 
               <div className="w-full lg:w-4/6 flex justify-center items-center grow ml-0 mr-0 lg:ml-5 lg:mr-5">
-                <div className="bg-zinc-300 dark:bg-[#444444] text-zinc-800 dark:text-white flex grow flex-wrap md:flex-nowrap items-center justify-center gap-5 w-full pl-6 pr-4 pb-8 rounded-[30px] max-md:justify-center max-lg:mt-10 max-md:pl-5">
+                <div className="bg-zinc-300 dark:bg-[#444444] shadow-lg text-zinc-800 dark:text-white flex grow flex-wrap md:flex-nowrap items-center justify-center gap-5 w-full pl-6 pr-4 pb-8 rounded-[30px] max-md:justify-center max-lg:mt-10 max-md:pl-5">
                   <div className="flex flex-col justify-center gap-5 items-center max-md:mt-10">
                     <div className="text-5xl font-bold bg-clip-text whitespace-nowrap lg:text-6xl">
                       {weatherData.current.temp_c}°C
@@ -215,7 +215,7 @@ export default function Forecast() {
           <div className="mt-12 mb-3.5">
             <div className="gap-5 flex max-lg:flex-col max-lg:gap-0">
               <div className="w-full lg:w-2/5 flex grow ml-0 mr-0 lg:mr-3 lg:ml-5">
-                <div className="w-full bg-zinc-300 dark:bg-[#444444] text-zinc-800 dark:text-white flex flex-col justify-center grow mx-auto py-8 pl-8 pr-8 rounded-[30px] max-md:mt-10 max-md:pl-5">
+                <div className="w-full bg-zinc-300 dark:bg-[#444444] shadow-lg text-zinc-800 dark:text-white flex flex-col justify-center grow mx-auto py-8 pl-8 pr-8 rounded-[30px] max-md:mt-10 max-md:pl-5">
                   <div className="text-center text-3xl font-bold self-center whitespace-nowrap">
                     3 Days Forecast:
                   </div>
@@ -246,7 +246,7 @@ export default function Forecast() {
               </div>
 
               <div className="w-full lg:w-3/5 flex flex-wrap grow mr-0 lg:mr-5">
-                <div className="w-full shadow-sm bg-zinc-300 dark:bg-[#444444] text-zinc-800 dark:text-white flex grow flex-col items-center px-20 py-5 rounded-[30px] max-md:max-w-full max-lg:mt-10 max-md:px-5">
+                <div className="w-full bg-zinc-300 dark:bg-[#444444] shadow-lg text-zinc-800 dark:text-white flex grow flex-col items-center px-20 py-5 rounded-[30px] max-md:max-w-full max-lg:mt-10 max-md:px-5">
                   <div className="text-3xl font-bold whitespace-nowrap mt-3">
                     Hourly Forecast:
                   </div>
@@ -283,7 +283,9 @@ export default function Forecast() {
           </div>
         </div>
       ) : (
-        <div>Enter Preffered City</div>
+        <div className="text-[#000000] dark:text-[#FFFFFF] text-xl md:text-2xl text-center font-poppins font-bold mt-12 ml-20 mr-20">
+          Please enter your preferred city in the search bar and press Enter.
+        </div>
       )}
     </>
   );
