@@ -4,16 +4,23 @@ import "./App.css";
 import Forecast from "./components/Forecast";
 import Header from "./components/Header";
 
+import { myContext } from "./context";
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [weatherData, setWeatherData] = useState(null);
 
   return (
-    <div className={isDarkMode ? "dark" : ""}>
-      <div className="w-full min-h-screen bg-light-theme-gradient dark:bg-dark-theme-gradient flex flex-col items-center">
-        <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-        <Forecast isDarkMode={isDarkMode} />
+    <myContext.Provider
+      value={{ isDarkMode, setIsDarkMode, weatherData, setWeatherData }}
+    >
+      <div className={isDarkMode ? "dark" : ""}>
+        <div className="w-full min-h-screen bg-light-theme-gradient dark:bg-dark-theme-gradient flex flex-col items-center">
+          <Header />
+          <Forecast />
+        </div>
       </div>
-    </div>
+    </myContext.Provider>
   );
 }
 
