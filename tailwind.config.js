@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      boxShadow: {
+        md: "0px 4px 40px 0px rgba(0, 0, 0, 0.25)",
+        lg: "10px 10px 4px 0px rgba(0, 0, 0, 0.50)",
+      },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
