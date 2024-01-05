@@ -86,7 +86,7 @@ export default function Header() {
           className="w-20 md:w-24 h-9 bg-[#D9D9D9] border border-solid border-[#000000] rounded-3xl flex items-center cursor-pointer relative"
           onClick={() => setIsDarkMode((prev) => !prev)}
         >
-          <div className="w-6 md:w-7 h-6 md:h-7 bg-black rounded-full absolute left-1 dark:left-[calc(100%-32px)]" />
+          <div className="w-6 md:w-7 h-6 md:h-7 bg-black rounded-full absolute left-1 dark:left-[calc(100%-32px)] transition-all duration-500" />
         </div>
         <p className="text-[#000000] dark:text-[#FFFFFF] text-lg font-poppins font-extrabold mt-1">
           {isDarkMode ? "Dark " : "Light "} Mode
