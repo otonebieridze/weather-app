@@ -102,22 +102,22 @@ export default function Forecast() {
                     <div className="flex gap-3 mt-11 max-md:mt-10">
                       <div className="flex flex-col items-center">
                         <img
-                          src={
-                            isDarkMode
-                              ? "images/sunrise-white.png"
-                              : "images/sunrise.png"
-                          }
+                          src="images/sunrise.png"
                           alt="sunrise"
-                          className="w-12 min-w-fit mt-1"
+                          className={`w-12 min-w-fit mt-1 filter ${
+                            isDarkMode
+                              ? "brightness-0 invert"
+                              : "brightness-100"
+                          }`}
                         />
                         <img
-                          src={
-                            isDarkMode
-                              ? "images/sunset-white.png"
-                              : "images/sunset.png"
-                          }
+                          src="images/sunset.png"
                           alt="sunset"
-                          className="w-12 min-w-fit mt-8"
+                          className={`w-12 min-w-fit mt-8 filter ${
+                            isDarkMode
+                              ? "brightness-0 invert"
+                              : "brightness-100"
+                          }`}
                         />
                       </div>
                       <div className="flex flex-col self-start">
@@ -151,13 +151,13 @@ export default function Forecast() {
                     <div className="md:w-min flex justify-center flex-wrap gap-8 items-center">
                       <div className="flex flex-col items-center self-end">
                         <img
-                          src={
-                            isDarkMode
-                              ? "images/humidity-white.png"
-                              : "images/humidity.png"
-                          }
+                          src="images/humidity.png"
                           alt="humidity"
-                          className="w-[50px]"
+                          className={`w-[50px] filter ${
+                            isDarkMode
+                              ? "brightness-0 invert"
+                              : "brightness-100"
+                          }`}
                         />
                         <div className="text-center text-xl font-semibold mt-4">
                           {weatherData.current.humidity}%
@@ -168,13 +168,13 @@ export default function Forecast() {
                       </div>
                       <div className="flex flex-col items-center self-end">
                         <img
-                          src={
-                            isDarkMode
-                              ? "images/pressure-white.png"
-                              : "images/pressure.png"
-                          }
+                          src="images/pressure.png"
                           alt="pressure"
-                          className="w-[50px]"
+                          className={`w-[50px] filter ${
+                            isDarkMode
+                              ? "brightness-0 invert"
+                              : "brightness-100"
+                          }`}
                         />
                         <div className="text-center text-xl font-semibold mt-4">
                           {weatherData.current.pressure_mb}mb
@@ -187,13 +187,13 @@ export default function Forecast() {
                     <div className="md:w-min flex justify-center flex-wrap gap-8 items-center">
                       <div className="flex flex-col items-center self-end">
                         <img
-                          src={
-                            isDarkMode
-                              ? "images/wind-white.png"
-                              : "images/wind.png"
-                          }
+                          src="images/wind.png"
                           alt="wind"
-                          className="w-[50px]"
+                          className={`w-[50px] filter ${
+                            isDarkMode
+                              ? "brightness-0 invert"
+                              : "brightness-100"
+                          }`}
                         />
                         <div className="text-center text-xl font-semibold mt-2">
                           {weatherData.current.wind_kph}km/h
@@ -204,11 +204,13 @@ export default function Forecast() {
                       </div>
                       <div className="flex flex-col items-center self-end">
                         <img
-                          src={
-                            isDarkMode ? "images/uv-white.png" : "images/uv.png"
-                          }
+                          src="images/uv.png"
                           alt="uv"
-                          className="w-[50px]"
+                          className={`w-[50px] filter ${
+                            isDarkMode
+                              ? "brightness-0 invert"
+                              : "brightness-100"
+                          }`}
                         />
                         <div className="text-center text-xl font-semibold mt-4">
                           {weatherData.current.uv}
